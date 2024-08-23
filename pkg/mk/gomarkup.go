@@ -184,6 +184,11 @@ func parseAttributes(attributes []string) map[string]string {
 			if markedFalse {
 				continue
 			}
+		} else {
+			_, markedFalse := strings.CutSuffix(key, MARKER_FALSE)
+			if markedFalse {
+				continue
+			}
 		}
 		current, exists := result[key]
 		if exists {
